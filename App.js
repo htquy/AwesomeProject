@@ -6,6 +6,7 @@ import Language from './src/components/Translate/Language';
 import CurrencyPage from './src/components/Currency/CurrencyPage';
 import home from './src/components/Home/home';
 import { MyContextProvider } from './src/components/GlobalSate';
+import SelectCurren from './src/components/Currency/SelectCurren';
 const Stack = createNativeStackNavigator();
 export default App=()=>{
   return(
@@ -16,6 +17,7 @@ export default App=()=>{
       <Stack.Screen name='Select Language' component={Language}/>
       <Stack.Screen name='CurrencyPage' component={CurrencyPage}/>
       <Stack.Screen name='Home' component={home}/>
+      <Stack.Screen name='select currency' component={SelectCurren} />
       </Stack.Navigator>
     </NavigationContainer>
     </MyContextProvider>

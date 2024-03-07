@@ -1,4 +1,4 @@
-import { ScrollView, TouchableOpacity, View, StyleSheet, Text,TextInput } from "react-native";
+import { ScrollView, TouchableOpacity, View, StyleSheet, Text,TextInput, FlatList } from "react-native";
 import languageCode from "../../utils/languageCode.json";
 import React,{useState,useEffect} from "react";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -24,19 +24,19 @@ const Language=({route,navigation})=>{
                     style={styles.searchInput}
                     onChangeText={txt => { setText(txt) }}
                 />
-                <ScrollView>
-                    {
-                        data.map((item, index) => (
-                            <TouchableOpacity
-                                key={index}
-                                style={styles.countryItem}
-                                onPress={()=>{setLanguage(item.name);navigation.goBack();}}
-                            >
-                                <Text>{item.name}</Text>
-                            </TouchableOpacity>
-                        ))
-                    }
-                </ScrollView>
+                <FlatList 
+                data={data}
+                renderItem={({item,index})=>(
+                    <TouchableOpacity
+                    key={index}
+                    style={styles.countryItem}
+                    onPress={()=>{setLanguage(item.name);navigation.goBack();}}
+                    >
+                        <Text>{item.name}</Text>
+                    </TouchableOpacity>
+                )}
+                keyExtractor={(item, index) => index.toString()}
+                />
                 </Layout>
     );
 };
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     },
     searchInput: {
         width: '90%',
-        height: 30,
+        height: 45,
         borderRadius: 10,
         borderWidth: 0.5,
         borderColor: '#8e8e8e',

@@ -54,7 +54,7 @@ const Layout=({children})=>{
         <View style={{height:height*0.08,bottom:0,display: keyboarduse ? 'none' : 'flex' }}>
         <View style={{height:height*0.066,width:'full',backgroundColor:'#FEE2E2',bottom:height*0.03,borderRadius:30,flexDirection:"row",marginHorizontal: 15,bottom:height*0.01}}>
           <TouchableOpacity 
-          style={{}} onPress={()=>{handlePress()}}>
+          style={{}} onPress={()=>{isCurren?handlePress():null}}>
           <Animated.View style={{height:height*0.052,width:animatedWidth1,backgroundColor:isCurren?'#FFC9C9':"#CD1F20",top:height*0.007,left:height*0.007,borderRadius:21,alignItems:'center',flexDirection:'row',justifyContent:"center"}}>
             <MaterialIcons name='translate' size={30} color={isCurren?'red':"white"} />
             {isCurren?null:<Text style={{color:"white",fontSize:20}}>Translate</Text>}
@@ -62,7 +62,7 @@ const Layout=({children})=>{
           </TouchableOpacity>
           <TouchableOpacity 
             style={{position:'absolute',top:height*0.007,right:height*0.007,flex:1,alignItems:"center"}} onPress={()=>{
-            handlePress()
+           isCurren?null: handlePress()
             //navigation.navigate('CurrencyPage');
           }}>
           <Animated.View style={{width:animatedWidth2,height:height*0.052,borderRadius:height*0.026,backgroundColor:isCurren?'#CD1F20':"#FFC9C9",alignItems:'center',flexDirection:'row',justifyContent:"center"}}>
