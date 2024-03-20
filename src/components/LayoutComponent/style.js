@@ -1,5 +1,5 @@
-import { StyleSheet } from "react-native";
-import {width,height} from "../Layout";
+import { Dimensions,StyleSheet} from "react-native";
+export const {width,height}=Dimensions.get('window');
 const styles = StyleSheet.create({
     title: {
         color: '#fff',
@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
     },
     translateText: {
       fontSize: 0.034*height,
+      height:'85%'
     },
     buttonText: {
       fontSize: 0.02*height,

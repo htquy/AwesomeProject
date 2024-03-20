@@ -3,9 +3,10 @@ import curencys from '../../utils/Currency.json'
 import React,{useState,useEffect} from "react";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Layout from "../Layout";
+import LayoutList from "../LayoutComponent/LayoutList";
 import CountryFlag from "react-native-country-flag";
-import { width,height } from "../Layout";
+import { width,height } from "../LayoutComponent/style";
+
 const SelectCurren=({route,navigation})=>{
     const{curency,setCurrency}=route.params;
     const [data, setData] = useState(curencys);
@@ -18,7 +19,7 @@ const SelectCurren=({route,navigation})=>{
   },[text]);
   console.log(text);
     return (
-        <Layout navigation={navigation}>
+        <LayoutList navigation={navigation}>
                 <TextInput
                     placeholder="Search"
                     style={styles.searchInput}
@@ -44,7 +45,7 @@ const SelectCurren=({route,navigation})=>{
                     keyExtractor={(item, index) => index.toString()}
                 />
 
-                </Layout>
+                </LayoutList>
     );
 };
 

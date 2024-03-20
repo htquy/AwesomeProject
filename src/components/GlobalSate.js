@@ -4,7 +4,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { useState,useEffect,createContext,useContext } from "react";
 import React from "react";
-import { height,width } from "./Layout";
+import { height,width } from "./LayoutComponent/style";
 const MyContext = createContext();
 export const MyContextProvider=({children})=>{
     const [keyboarduse, setKeyboarduse] = useState(false);
@@ -29,7 +29,7 @@ export const MyContextProvider=({children})=>{
     };
   }, []);
     return(
-        <MyContext.Provider value={{ keyboarduse, keyboardHeight,isCurren,setIsCurren,somwidth,setSomwidth }}>
+        <MyContext.Provider value={{ keyboarduse, keyboardHeight,isCurren,setIsCurren,somwidth,setSomwidth,setKeyboarduse }}>
             {children}
         </MyContext.Provider>
     )

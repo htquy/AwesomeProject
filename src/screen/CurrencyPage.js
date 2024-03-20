@@ -1,11 +1,13 @@
-import Layout from "../Layout";
+import Layout from "../components/LayoutComponent/Layout";
 import { Text, View,StyleSheet, TouchableOpacity } from "react-native";
 import CountryFlag from "react-native-country-flag";
-import currencys from '../../utils/Currency.json'
-import NumBoard from "./NumBoard";
+import currencys from '../utils/Currency.json'
+import NumBoard from "../components/Currency/NumBoard";
 import { useState,useEffect } from "react";
-import { width,height } from "../Layout";
+import { width,height } from "../components/LayoutComponent/style";
+import { useGlobalState } from "../components/GlobalSate";
 const CurrencyPage=({navigation})=>{
+    const {setKeyboarduse}=useGlobalState();
     const [text,setText]=useState();
     const [currency1,setCurrency1]=useState('USD')
     const [currency2,setCurrency2]=useState('')
@@ -27,11 +29,10 @@ const CurrencyPage=({navigation})=>{
       }, []);
       console.log(result2)
     return(
-        <Layout>
             <View style={{flex:1,paddingLeft:0.025*width,paddingRight:0.025*width}}>
             <View style={[styles.viewcurren,{backgroundColor:'#FEE2E2'}]}>
             <TouchableOpacity style={{flexDirection:'row'}}
-            onPress={()=>navigation.navigate('select currency',{currency:currency1,setCurrency:setCurrency1})}>
+            onPress={()=>{navigation.navigate('select currency',{currency:currency1,setCurrency:setCurrency1,setKeyboarduse:setKeyboarduse})}}>
             <View style={styles.flag}><CountryFlag isoCode={currencyUnit1.countryCode} size={0.08*width} /></View>
             <Text style={{fontSize:0.05*width,left:5,top:0.01*width}}>{currencyUnit1.currencyCode}</Text>
             </TouchableOpacity>
@@ -41,7 +42,7 @@ const CurrencyPage=({navigation})=>{
             </View>
             <View style={[styles.viewcurren,{backgroundColor:'#F5F5F5',top:0.06*width}]}>
             <TouchableOpacity style={{flexDirection:'row'}}
-            onPress={()=>navigation.navigate('select currency',{currency:currency2,setCurrency:setCurrency2})}>
+            onPress={()=>{navigation.navigate('select currency',{currency:currency2,setCurrency:setCurrency2,setKeyboarduse:setKeyboarduse})}}>
             <View style={styles.flag}>{currency2==''?null:<CountryFlag isoCode={currencyUnit2?.countryCode} size={0.08*width} />}</View>
             <Text style={{fontSize:0.05*width,left:5,top:0.01*width}}>{currencyUnit2?.currencyCode}</Text>
             </TouchableOpacity>
@@ -53,7 +54,6 @@ const CurrencyPage=({navigation})=>{
             <NumBoard currency1={currency1} currency2={currency2} setCurrency1={setCurrency1} setCurrency2={setCurrency2} result1={result1} result2={result2} setResult1={setResult1} setResult2={setResult2} />
             </View>
             </View>
-        </Layout>
     )
 }
 export default CurrencyPage;

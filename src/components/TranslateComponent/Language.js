@@ -3,8 +3,8 @@ import languageCode from "../../utils/languageCode.json";
 import React,{useState,useEffect} from "react";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Layout from "../Layout";
-import Voice from "@react-native-voice/voice";
+import LayoutList from "../LayoutComponent/LayoutList";
+import { Ionicons } from "@expo/vector-icons";
 const Language=({route,navigation})=>{
     const{language,setLanguage}=route.params;
     const [data, setData] = useState(languageCode);
@@ -18,7 +18,7 @@ const Language=({route,navigation})=>{
   },[text]);
   console.log(text);
     return (
-        <Layout navigation={navigation}>
+        <LayoutList navigation={navigation}>
                 <TextInput
                     placeholder="Search"
                     style={styles.searchInput}
@@ -32,12 +32,19 @@ const Language=({route,navigation})=>{
                     style={styles.countryItem}
                     onPress={()=>{setLanguage(item.name);navigation.goBack();}}
                     >
-                        <Text>{item.name}</Text>
+                        <View style={{flexDirection:'row',flex:1}}>
+                             <View>
+                        <Text style={{fontSize:20}}>{item.name}</Text>
+                        </View> 
+                        <View style={{right:0,position:'absolute'}}>
+                        {item.name==language?<Ionicons name="checkmark-outline" size={30} color={'green'} />:null}
+                        </View>
+                        </View>
                     </TouchableOpacity>
                 )}
                 keyExtractor={(item, index) => index.toString()}
                 />
-                </Layout>
+                </LayoutList>
     );
 };
 
@@ -46,6 +53,8 @@ const styles = StyleSheet.create({
         padding: 10,
         borderBottomWidth: 1,
         borderBottomColor: 'gray',
+        flexDirection:'row',
+        flex:1
     },
     searchInput: {
         width: '90%',
@@ -56,6 +65,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         marginTop: 10,
         paddingLeft: 10,
+        fontSize:20
     },
 });
 

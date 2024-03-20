@@ -1,24 +1,19 @@
 import React, { useState,useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Image, TouchableOpacity,KeyboardAvoidingView,Platform } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Ionicons } from '@expo/vector-icons';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import Layout from '../Layout';
-import {width,height} from '../Layout';
-import styles from './style';
-import languagecode from "../../utils/languageCode.json";
+import ButtonMic from '../components/TranslateComponent/ButtonMic';
+import Layout from '../components/LayoutComponent/Layout';
+import {width,height} from '../components/LayoutComponent/style';
+import styles from '../components/LayoutComponent/style';
+import languagecode from "../utils/languageCode.json";
 import axios from "axios";
 import Tts from "react-native-tts";
-import { useGlobalState } from '../GlobalSate';
-import ConvertLanguage from './ConvertLanguage';
+import { useGlobalState } from '../components/GlobalSate';
+import ConvertLanguage from '../components/TranslateComponent/ConvertLanguage';
 import Voice from "@react-native-voice/voice";
+import InputComponent from '../components/TranslateComponent/InputTranslate';
 //import languageCode from './utils/languageCode.json';
 const TranslatePage = ({navigation}) => {
   const { keyboarduse, keyboardHeight} = useGlobalState();
-  console.log(keyboarduse);
-  console.log(keyboardHeight);
-  console.log(height);
   const [language1, setLanguage1] = useState("English");
   const [language2, setLanguage2] = useState("Vietnamese");
   const[isUseVoice,setIsUseVoice]=useState(false);
@@ -103,8 +98,6 @@ const TranslatePage = ({navigation}) => {
         };
     }, []);
   return (
-    
-      <Layout navigation={navigation}>
       <View style={styles.body}>
 
         <ConvertLanguage language1={language1} setLanguage1={setLanguage1} language2={language2} setLanguage2={setLanguage2} navigation={navigation}>
@@ -114,66 +107,17 @@ const TranslatePage = ({navigation}) => {
         setText(textTrans);
         }}
          >
-            <Image source={require('../../../assets/convert.png')} style={{width:25,height:25,top:15}}/>
+            <Image source={require('../../assets/png/convert.png')} style={{width:25,height:25,top:15}}/>
           </TouchableOpacity>
         </ConvertLanguage>
 
         <View style={[styles.outputContainer,{height:keyboarduse?(height-height*0.2303  -keyboardHeight):0.5*height}]}>
-        <View style={{flex:1}}>
-          {text!=""?<View style={{flexDirection:'row'}}>
-            <Text>{language1}</Text>
-            <View style={{position:'absolute',right:10}}>
-            <TouchableOpacity onPress={()=>{setText('')}}>
-            <Ionicons name="close-sharp" size={30} color="black"/>
-            </TouchableOpacity>
-            </View>
-            </View>:null}
-          { isUseVoice?
-            <TextInput style={styles.translateText} placeholder='Let say something...' value={text} multiline={true} numberOfLines={4} />:
-            <TextInput style={styles.translateText} placeholder='Enter Text...' value={text} multiline={true} numberOfLines={4} onChangeText={(txt)=>setText(txt)}/>}
-          </View>
-          {text!=""?<View style={{flex:1}}>
-            <View style={{height:3,width:"80%",left:"10%",right:20,backgroundColor:'#FEE2E2'}} />
-            <View style={{flex:1,top:"10%"}}>
-            <View style={{flexDirection:'row'}}>
-            <Text>{language2}</Text>
-            <View style={{position:'absolute',right:10}}>
-              <TouchableOpacity onPress={()=>speakText(textTrans)}>
-            <Ionicons name="md-volume-high" size={30} color="black"/>
-            </TouchableOpacity>
-            </View>
-            </View>
-              <TextInput style={styles.translateText} editable={false} value={textTrans} multiline={true} numberOfLines={5}/>
-            
-            </View>
-            </View>:null}
+        <InputComponent text={text} isUseVoice={isUseVoice} language1={language1} language2={language2} setText={setText} speakText={speakText} textTrans={textTrans}/>
         </View>
 
-        <View style={[styles.inputContainer,{display:keyboarduse?'none':'hidden'}]}>
-          <View style={{width:"40%",alignItems:'center'}}>
-          <TouchableOpacity style={[styles.handwriteButton,{display:isUseVoice?'none':'hidden'}]}>
-            <Image source={require('../../../assets/handwrite.png')} style={{width:0.0273*height,height:0.0273*height}} />
-          </TouchableOpacity>
-          <Text style={{display:isUseVoice?'none':'hidden'}}>Handwrite</Text>
-          </View>
-          <View style={{width:"20%",alignItems:'center'}}>
-          <TouchableOpacity style={styles.mic}
-          onPress={()=>{isUseVoice?stopRecording():startRecording();setIsUseVoice(!isUseVoice)}}
-          >
-          {isUseVoice?<Ionicons name="square-sharp" size={30} color="white"/>:<Ionicons name="mic" size={32} color="white" />}
-          </TouchableOpacity>
-          </View>
-          
-          <View style={{width:"40%",alignItems:'center'}}>
-          <TouchableOpacity style={[styles.uploadButton,{display:isUseVoice?'none':'hidden'}]}>
-            <Image source={require('../../../assets/upload.png')} style={{width:0.0273*height,height:0.0273*height}} />
-          </TouchableOpacity>
-          <Text style={{display:isUseVoice?'none':'hidden'}}>Upload</Text>
-          </View>
-        </View>
+        <ButtonMic stopRecording={stopRecording} startRecording={startRecording} isUseVoice={isUseVoice} setIsUseVoice={setIsUseVoice} keyboarduse={keyboarduse}/>
         
       </View>
-      </Layout>
   );
 };
 
