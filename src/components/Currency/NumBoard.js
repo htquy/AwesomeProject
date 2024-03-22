@@ -64,7 +64,10 @@ const NumBoard = ({currency1,currency2,setCurrency1,setCurrency2,result1,result2
                   <TouchableOpacity style={{ width: '88%', height: '88%',justifyContent:'center',alignItems:'center', backgroundColor:i[1],borderRadius:width*0.05 }}
                   onPress={()=>handleButton(i[0])}
                   >
-                    {i[3]!=null?<Ionicons name={i[3]} size={28} color={i[2]}/>:<Text style={{fontSize:28, color:i[2]}}>{i[[0]]}</Text>}
+                    {i[3]!=null?
+                    (i[0]=='||'?<View style={{transform: [{ rotate: '90deg' }],}}><Ionicons name={i[3]} size={28} color={i[2]}/></View>:
+                    <Ionicons name={i[3]} size={28} color={i[2]}/>):
+                    <Text style={{fontSize:28, color:i[2]}}>{i[[0]]}</Text>}
                   </TouchableOpacity>
                 </View>
               ))

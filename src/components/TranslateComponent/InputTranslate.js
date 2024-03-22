@@ -1,7 +1,20 @@
-import { StyleSheet, Text, View, TextInput, Button, Image, TouchableOpacity,KeyboardAvoidingView,Platform } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity,KeyboardAvoidingView,Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import styles from "../LayoutComponent/style";
+import SvgUri from 'react-native-svg-uri';
+import Clipboard from '@react-native-clipboard/clipboard';
 const InputComponent=({text,isUseVoice,language1,language2,setText,speakText,textTrans})=>{
+  const pasteFromClipboard = async () => {
+    try {
+      console.log("paste here")
+      const text = await Clipboard.getString();
+      setText(prev => prev + text);
+    } catch (error) {
+      console.error('Error pasting from clipboard', error);
+      return null;
+    }
+  };
+ 
     return(
         <>
         <View style={{flex:1}}>
@@ -13,9 +26,17 @@ const InputComponent=({text,isUseVoice,language1,language2,setText,speakText,tex
             </TouchableOpacity>
             </View>
             </View>:null}
+            <TouchableOpacity
+            style={styles.pasteButton}
+            onPress={() => pasteFromClipboard()}>
+            <SvgUri width={20} height={20} source={require('../../../assets/svg/Document.svg')}/>
+            {text!=""?null:<Text style={{color: "#3780BF", marginStart: 8}}>
+              Paste
+            </Text>}
+          </TouchableOpacity>
           { isUseVoice?
-            <TextInput style={styles.translateText} placeholder='Let say something...' value={text} multiline={true} numberOfLines={4} />:
-            <TextInput style={styles.translateText} placeholder='Enter Text...' value={text} multiline={true} numberOfLines={4} onChangeText={(txt)=>setText(txt)}/>}
+            <TextInput style={styles.translateText} placeholder='Let say something...' value={text} multiline={true} numberOfLines={3} />:
+           <View style={{width:'90%',flex:1}}><TextInput style={styles.translateText} placeholder='Enter Text...' value={text} multiline={true} numberOfLines={4} onChangeText={(txt)=>setText(txt)}/></View>}
           </View>
           {text!=""?<View style={{height:3,width:"80%",left:"10%",right:20,backgroundColor:'#FEE2E2'}} />:null}
           {text!=""?<View style={{flex:1}}>
@@ -28,7 +49,7 @@ const InputComponent=({text,isUseVoice,language1,language2,setText,speakText,tex
             </TouchableOpacity>
             </View>
             </View>
-              <TextInput style={styles.translateText} editable={false} value={textTrans} multiline={true} numberOfLines={5}/>
+              <TextInput style={styles.translateText} editable={false} value={textTrans} multiline={true} numberOfLines={3}/>
             
             </View>
             </View>:null}

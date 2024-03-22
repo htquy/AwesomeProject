@@ -1,5 +1,5 @@
 import { ScrollView, TouchableOpacity, View, StyleSheet, Text,TextInput,FlatList } from "react-native";
-import curencys from '../../utils/Currency.json'
+import currencys from '../../utils/Currency.json'
 import React,{useState,useEffect} from "react";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -8,16 +8,27 @@ import CountryFlag from "react-native-country-flag";
 import { width,height } from "../LayoutComponent/style";
 
 const SelectCurren=({route,navigation})=>{
-    const{curency,setCurrency}=route.params;
-    const [data, setData] = useState(curencys);
+    const{currency,setCurrency}=route.params;
+    const [data, setData] = useState(currencys);
     const [text,setText]=useState('');
   useEffect(()=>{
-    let tempData = curencys.filter(item => {
+    let tempData = currencys.filter(item => {
       return item.currencyCode.toLowerCase().indexOf(text.toLowerCase()) > -1||item.currencyName.toLowerCase().indexOf(text.toLowerCase()) > -1;
     });
     setData(tempData);
   },[text]);
-  console.log(text);
+  console.log(currency,"123456");
+  var listCurrency=data.concat();
+    data.forEach((item,index)=>{
+        if(item.currencyCode==currency){
+            let indexCurrency=index;
+            if(indexCurrency>-1){
+                listCurrency.splice(index,1);
+                listCurrency.unshift(item);
+            }
+            return;
+        }
+    })
     return (
         <LayoutList navigation={navigation}>
                 <TextInput
@@ -26,7 +37,7 @@ const SelectCurren=({route,navigation})=>{
                     onChangeText={txt => { setText(txt) }}
                 />
                 <FlatList
-                    data={data}
+                    data={listCurrency}
                     renderItem={({ item, index }) => (
                         <TouchableOpacity
                             key={index}
@@ -37,8 +48,8 @@ const SelectCurren=({route,navigation})=>{
                                 <View style={{ width: 0.08 * width, height: 0.08 * width, overflow: "hidden", borderRadius: 0.4 * height, alignItems: 'center' }}>
                                     <CountryFlag isoCode={item.countryCode} size={0.08 * width} />
                                 </View>
-                                <Text style={{ left: 0.02 * width, top: 0.01 * width }}>{item.currencyName}</Text>
-                                <Text style={{ right: 0.02 * width, top: 0.01 * width, position: 'absolute' }}>{item.currencyCode}</Text>
+                                <Text style={{ left: 0.02 * width, top: 0.01 * width,color:item.currencyCode==currency?'green':'black' }}>{item.currencyName}</Text>
+                                <Text style={{ right: 0.02 * width, top: 0.01 * width, position: 'absolute',color:item.currencyCode==currency?'green':'black' }}>{item.currencyCode}</Text>
                             </View>
                         </TouchableOpacity>
                     )}

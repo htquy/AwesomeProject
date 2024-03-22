@@ -73,6 +73,18 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       marginHorizontal: 5,
     },
+    pasteButton: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: '#DDEEFF',
+      position: 'absolute',
+      bottom: 0,
+      right: 0,
+      paddingHorizontal: 8,
+      paddingVertical: 8,
+      borderRadius: 80,
+      zIndex:999
+    },
     mic:{
       width: 0.096*height,
       height: 0.096*height,

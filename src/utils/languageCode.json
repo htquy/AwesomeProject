@@ -1,13 +1,5 @@
 [
     {
-      "code": "ab",
-      "name": "Abkhaz"
-    },
-    {
-      "code": "aa",
-      "name": "Afar"
-    },
-    {
       "code": "af",
       "name": "Afrikaans"
     },
@@ -28,24 +20,12 @@
       "name": "Arabic"
     },
     {
-      "code": "an",
-      "name": "Aragonese"
-    },
-    {
       "code": "hy",
       "name": "Armenian"
     },
     {
       "code": "as",
       "name": "Assamese"
-    },
-    {
-      "code": "av",
-      "name": "Avaric"
-    },
-    {
-      "code": "ae",
-      "name": "Avestan"
     },
     {
       "code": "ay",
@@ -60,10 +40,6 @@
       "name": "Bambara"
     },
     {
-      "code": "ba",
-      "name": "Bashkir"
-    },
-    {
       "code": "eu",
       "name": "Basque"
     },
@@ -73,15 +49,7 @@
     },
     {
       "code": "bn",
-      "name": "Bengali; Bangla"
-    },
-    {
-      "code": "bh",
-      "name": "Bihari"
-    },
-    {
-      "code": "bi",
-      "name": "Bislama"
+      "name": "Bengali"
     },
     {
       "code": "bs",
@@ -101,11 +69,7 @@
     },
     {
       "code": "ca",
-      "name": "Catalan; Valencian"
-    },
-    {
-      "code": "ch",
-      "name": "Chamorro"
+      "name": "Catalan"
     },
     {
       "code": "ce",
@@ -113,7 +77,7 @@
     },
     {
       "code": "ny",
-      "name": "Chichewa; Chewa; Nyanja"
+      "name": "Chichewa"
     },
     {
       "code": "zh",
@@ -122,10 +86,6 @@
     {
       "code": "cv",
       "name": "Chuvash"
-    },
-    {
-      "code": "kw",
-      "name": "Cornish"
     },
     {
       "code": "co",
@@ -152,10 +112,6 @@
       "name": "Dutch"
     },
     {
-      "code": "dz",
-      "name": "Dzongkha"
-    },
-    {
       "code": "en",
       "name": "English"
     },
@@ -172,24 +128,8 @@
       "name": "Ewe"
     },
     {
-      "code": "fo",
-      "name": "Faroese"
-    },
-    {
-      "code": "fj",
-      "name": "Fijian"
-    },
-    {
-      "code": "fi",
-      "name": "Finnish"
-    },
-    {
       "code": "fr",
       "name": "French"
-    },
-    {
-      "code": "ff",
-      "name": "Fula; Fulah; Pulaar; Pular"
     },
     {
       "code": "gl",
@@ -204,10 +144,6 @@
       "name": "German"
     },
     {
-      "code": "el",
-      "name": "Greek, Modern"
-    },
-    {
       "code": "gn",
       "name": "GuaranÃ­"
     },
@@ -217,7 +153,7 @@
     },
     {
       "code": "ht",
-      "name": "Haitian; Haitian Creole"
+      "name": "Haitian Creole"
     },
     {
       "code": "ha",
@@ -226,10 +162,6 @@
     {
       "code": "he",
       "name": "Hebrew (modern)"
-    },
-    {
-      "code": "hz",
-      "name": "Herero"
     },
     {
       "code": "hi",
@@ -244,16 +176,8 @@
       "name": "Hungarian"
     },
     {
-      "code": "ia",
-      "name": "Interlingua"
-    },
-    {
       "code": "id",
       "name": "Indonesian"
-    },
-    {
-      "code": "ie",
-      "name": "Interlingue"
     },
     {
       "code": "ga",
@@ -264,24 +188,12 @@
       "name": "Igbo"
     },
     {
-      "code": "ik",
-      "name": "Inupiaq"
-    },
-    {
-      "code": "io",
-      "name": "Ido"
-    },
-    {
       "code": "is",
       "name": "Icelandic"
     },
     {
       "code": "it",
       "name": "Italian"
-    },
-    {
-      "code": "iu",
-      "name": "Inuktitut"
     },
     {
       "code": "ja",
@@ -292,20 +204,8 @@
       "name": "Javanese"
     },
     {
-      "code": "kl",
-      "name": "Kalaallisut, Greenlandic"
-    },
-    {
       "code": "kn",
       "name": "Kannada"
-    },
-    {
-      "code": "kr",
-      "name": "Kanuri"
-    },
-    {
-      "code": "ks",
-      "name": "Kashmiri"
     },
     {
       "code": "kk",
@@ -316,24 +216,12 @@
       "name": "Khmer"
     },
     {
-      "code": "ki",
-      "name": "Kikuyu, Gikuyu"
-    },
-    {
       "code": "rw",
       "name": "Kinyarwanda"
     },
     {
       "code": "ky",
       "name": "Kyrgyz"
-    },
-    {
-      "code": "kv",
-      "name": "Komi"
-    },
-    {
-      "code": "kg",
-      "name": "Kongo"
     },
     {
       "code": "ko",
@@ -344,24 +232,16 @@
       "name": "Kurdish"
     },
     {
-      "code": "kj",
-      "name": "Kwanyama, Kuanyama"
-    },
-    {
       "code": "la",
       "name": "Latin"
     },
     {
       "code": "lb",
-      "name": "Luxembourgish, Letzeburgesch"
+      "name": "Luxembourgish"
     },
     {
       "code": "lg",
       "name": "Ganda"
-    },
-    {
-      "code": "li",
-      "name": "Limburgish, Limburgan, Limburger"
     },
     {
       "code": "ln",
@@ -382,10 +262,6 @@
     {
       "code": "lv",
       "name": "Latvian"
-    },
-    {
-      "code": "gv",
-      "name": "Manx"
     },
     {
       "code": "mk",
@@ -413,7 +289,7 @@
     },
     {
       "code": "mr",
-      "name": "Marathi (MarÄá¹­hÄ«)"
+      "name": "Marath"
     },
     {
       "code": "mh",
@@ -424,20 +300,8 @@
       "name": "Mongolian"
     },
     {
-      "code": "na",
-      "name": "Nauru"
-    },
-    {
-      "code": "nv",
-      "name": "Navajo, Navaho"
-    },
-    {
       "code": "nb",
       "name": "Norwegian BokmÃ¥l"
-    },
-    {
-      "code": "nd",
-      "name": "North Ndebele"
     },
     {
       "code": "ne",
@@ -448,28 +312,16 @@
       "name": "Ndonga"
     },
     {
-      "code": "nn",
-      "name": "Norwegian Nynorsk"
-    },
-    {
       "code": "no",
       "name": "Norwegian"
-    },
-    {
-      "code": "ii",
-      "name": "Nuosu"
     },
     {
       "code": "nr",
       "name": "South Ndebele"
     },
     {
-      "code": "oc",
-      "name": "Occitan"
-    },
-    {
       "code": "oj",
-      "name": "Ojibwe, Ojibwa"
+      "name": "Ojibwe"
     },
     {
       "code": "om",
@@ -480,16 +332,8 @@
       "name": "Oriya"
     },
     {
-      "code": "os",
-      "name": "Ossetian, Ossetic"
-    },
-    {
       "code": "pa",
-      "name": "Panjabi, Punjabi"
-    },
-    {
-      "code": "pi",
-      "name": "PÄli"
+      "name": "Punjabi"
     },
     {
       "code": "fa",
@@ -501,7 +345,7 @@
     },
     {
       "code": "ps",
-      "name": "Pashto, Pushto"
+      "name": "Pashto"
     },
     {
       "code": "pt",
@@ -521,7 +365,7 @@
     },
     {
       "code": "ro",
-      "name": "Romanian, [])"
+      "name": "Romanian"
     },
     {
       "code": "ru",
@@ -529,7 +373,7 @@
     },
     {
       "code": "sa",
-      "name": "Sanskrit (Saá¹ská¹›ta)"
+      "name": "Sanskrit"
     },
     {
       "code": "sc",
@@ -557,7 +401,7 @@
     },
     {
       "code": "gd",
-      "name": "Scottish Gaelic; Gaelic"
+      "name": "Scottish Gaelic"
     },
     {
       "code": "sn",
@@ -565,7 +409,7 @@
     },
     {
       "code": "si",
-      "name": "Sinhala, Sinhalese"
+      "name": "Sinhala"
     },
     {
       "code": "sk",
@@ -585,7 +429,7 @@
     },
     {
       "code": "es",
-      "name": "Spanish; Castilian"
+      "name": "Spanish"
     },
     {
       "code": "su",
@@ -624,10 +468,6 @@
       "name": "Tigrinya"
     },
     {
-      "code": "bo",
-      "name": "Tibetan Standard, Tibetan, Central"
-    },
-    {
       "code": "tk",
       "name": "Turkmen"
     },
@@ -638,10 +478,6 @@
     {
       "code": "tn",
       "name": "Tswana"
-    },
-    {
-      "code": "to",
-      "name": "Tonga (Tonga Islands)"
     },
     {
       "code": "tr",
@@ -665,7 +501,7 @@
     },
     {
       "code": "ug",
-      "name": "Uyghur, Uighur"
+      "name": "Uyghur"
     },
     {
       "code": "uk",
@@ -680,28 +516,12 @@
       "name": "Uzbek"
     },
     {
-      "code": "ve",
-      "name": "Venda"
-    },
-    {
       "code": "vi",
       "name": "Vietnamese"
     },
     {
-      "code": "vo",
-      "name": "VolapÃ¼k"
-    },
-    {
-      "code": "wa",
-      "name": "Walloon"
-    },
-    {
       "code": "cy",
       "name": "Welsh"
-    },
-    {
-      "code": "wo",
-      "name": "Wolof"
     },
     {
       "code": "fy",
@@ -718,10 +538,6 @@
     {
       "code": "yo",
       "name": "Yoruba"
-    },
-    {
-      "code": "za",
-      "name": "Zhuang, Chuang"
     },
     {
       "code": "zu",

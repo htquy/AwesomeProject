@@ -9,14 +9,24 @@ const Language=({route,navigation})=>{
     const{language,setLanguage}=route.params;
     const [data, setData] = useState(languageCode);
     const [text,setText]=useState('');
-    console.log(language);
   useEffect(()=>{
     let tempData = languageCode.filter(item => {
       return item.name.toLowerCase().indexOf(text.toLowerCase()) > -1;
     });
     setData(tempData);
   },[text]);
-  console.log(text);
+
+    var listLanguage=data.concat();
+    data.forEach((item,index)=>{
+        if(item.name==language){
+            let indexLanguage=index;
+            if(indexLanguage>-1){
+                listLanguage.splice(index,1);
+                listLanguage.unshift(item);
+            }
+            return;
+        }
+    })
     return (
         <LayoutList navigation={navigation}>
                 <TextInput
@@ -25,7 +35,7 @@ const Language=({route,navigation})=>{
                     onChangeText={txt => { setText(txt) }}
                 />
                 <FlatList 
-                data={data}
+                data={listLanguage}
                 renderItem={({item,index})=>(
                     <TouchableOpacity
                     key={index}

@@ -19,12 +19,12 @@ const Layout=({children})=>{
     Animated.parallel([
       Animated.timing(animatedWidth1, {
         toValue: somwidth,
-        duration: 300,
+        duration: 250,
         useNativeDriver: false,
       }),
       Animated.timing(animatedWidth2, {
         toValue: height * 0.402 - somwidth,
-        duration: 300,
+        duration: 250,
         useNativeDriver: false,
       }),
     ]).start(()=>{
