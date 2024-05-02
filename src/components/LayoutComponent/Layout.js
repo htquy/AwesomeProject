@@ -37,7 +37,7 @@ const Layout=({children})=>{
   };
     return(<LayoutList>
         {children}
-        <View style={{height:height*0.08,bottom:0,display: keyboarduse ? 'none' : 'flex' }}>
+        <View style={{height:height*0.08,bottom:-10,display: keyboarduse ? 'none' : 'flex' }}>
         <View style={{height:height*0.066,width:'full',backgroundColor:'#FEE2E2',bottom:height*0.03,borderRadius:30,flexDirection:"row",marginHorizontal: 15,bottom:height*0.01}}>
           <TouchableOpacity 
           style={{}} onPress={()=>{isCurren?handlePress():null}}>

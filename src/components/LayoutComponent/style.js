@@ -1,5 +1,6 @@
 import { Dimensions,StyleSheet} from "react-native";
-export const {width,height}=Dimensions.get('window');
+const {w,h}=Dimensions.get('window');
+export const {width,height}={width:Dimensions.get('window').width,height:Dimensions.get('window').height-50};
 const styles = StyleSheet.create({
     title: {
         color: '#fff',

@@ -54,7 +54,7 @@ const NumBoard = ({currency1,currency2,setCurrency1,setCurrency2,result1,result2
     ConvertAPI(result1);
   },[currency1,currency2])
   return (
-    <View style={{ height:width*1.25,width:'full',top:0.1*width }}>
+    <View style={{ height:width*1.2,width:'full',top:0.08*width }}>
       {
         board.map((items, index) => (
           <View key={index} style={{ justifyContent: 'center', alignItems: 'center', flex: 1,flexDirection:'row',height:'25%' }}>
